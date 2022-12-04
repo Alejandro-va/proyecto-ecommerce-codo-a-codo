@@ -2,20 +2,19 @@ import { TYPES } from "../actions/shoppingAction";
 
 //FUNCION INICIALIZADORA
 export const shoppingInitialState = {
-  products: [
-    { id: 1, name: "Producto 1", price: 100 },
-    { id: 2, name: "Producto 2", price: 200 },
-    { id: 3, name: "Producto 3", price: 300 },
-    { id: 4, name: "Producto 4", price: 400 },
-    { id: 5, name: "Producto 5", price: 500 },
-    { id: 6, name: "Producto 6", price: 600 },
-  ],
+  products: [],
   cart: [],
 };
 
 //FUNCION REDUCER
 export function shoppingReducer(state, action) {
   switch (action.type) {
+    case TYPES.LOAD_PRODUCTS: {
+      return {
+        ...state,
+        products: action.payload,
+      };
+    }
     case TYPES.ADD_TO_CART: {
       let newItem = state.products.find(
         (producto) => producto.id === action.payload
@@ -70,7 +69,10 @@ export function shoppingReducer(state, action) {
     }
 
     case TYPES.CLEAR_CART:
-      return shoppingInitialState;
+      return {
+        ...state,
+        cart: [],
+      };
 
     default:
       return state;
