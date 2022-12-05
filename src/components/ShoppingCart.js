@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import { TYPES } from "../actions/shoppingAction";
 import {
   shoppingReducer,
@@ -8,14 +8,24 @@ import CartItem from "./CartItem";
 import ProductItem from "./ProductItem";
 
 const ShoppingCart = () => {
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((data) => loadProducts(data));
+  }, []);
+
   const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
 
   //hago referencia al objeto q inicia el estado: shoppingInitialState
-  const { products, cart } = state;
+  const { cart, products } = state;
+
+  //metodo para cargar 'products' con API
+  const loadProducts = (products) => {
+    dispatch({ type: TYPES.LOAD_PRODUCTS, payload: products });
+  };
 
   //metodos para productos
   const addToCart = (id) => {
-    console.log(id);
     dispatch({ type: TYPES.ADD_TO_CART, payload: id });
   };
   const delFromCart = (id, all = false) => {
@@ -39,9 +49,10 @@ const ShoppingCart = () => {
       <h2>Carrito de Compras</h2>
       <h3>Productos</h3>
       <article className="box grid-responsive">
-        {products.map((el) => (
-          <ProductItem key={el.id} data={el} addToCart={addToCart} />
-        ))}
+        {products.length > 0 &&
+          products.map((el) => (
+            <ProductItem key={el.id} data={el} addToCart={addToCart} />
+          ))}
       </article>
       <h3>Carrito</h3>
       <article className="box">
