@@ -4,6 +4,7 @@ import { TYPES } from "../actions/shoppingAction";
 export const shoppingInitialState = {
   products: [],
   cart: [],
+  total: 0,
 };
 
 //FUNCION REDUCER
@@ -19,9 +20,7 @@ export function shoppingReducer(state, action) {
       let newItem = state.products.find(
         (producto) => producto.id === action.payload
       );
-      console.log("newItem: ", newItem);
-      let itemInCart = state.cart.find((item) => item.id === newItem.id); //si el id de mi carrito coincide con el id newItem lo guardo en mi variable
-      console.log("itemInCart: ", itemInCart);
+      let itemInCart = state.cart?.find((item) => item.id === newItem.id); //si el id de mi carrito coincide con el id newItem lo guardo en mi variable
       //console.log("cart: ", cart);
 
       // variable es nula,
@@ -45,7 +44,6 @@ export function shoppingReducer(state, action) {
 
     case TYPES.REMOVE_ONE_FROM_CART: {
       let itemToDelete = state.cart.find((item) => item.id === action.payload);
-      console.log(itemToDelete);
       return itemToDelete.quantity > 1
         ? {
             ...state,
@@ -68,6 +66,16 @@ export function shoppingReducer(state, action) {
       };
     }
 
+    case TYPES.TOTAL_CART:
+      let initialValue = 0;
+      console.log(state.cart);
+      let totalCart = state.cart.forEach(
+        (product) => (initialValue += product.price * product.quantity)
+      );
+      return {
+        ...state,
+        total: initialValue,
+      };
     case TYPES.CLEAR_CART:
       return {
         ...state,

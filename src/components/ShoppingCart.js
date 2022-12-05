@@ -17,7 +17,7 @@ const ShoppingCart = () => {
   const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
 
   //hago referencia al objeto q inicia el estado: shoppingInitialState
-  const { cart, products } = state;
+  const { cart, products, total } = state;
 
   //metodo para cargar 'products' con API
   const loadProducts = (products) => {
@@ -44,22 +44,37 @@ const ShoppingCart = () => {
     dispatch({ type: TYPES.CLEAR_CART });
   };
 
+  //metodo para obtener total de carrito
+  const loadTotal = () => {
+    dispatch({ type: TYPES.TOTAL_CART, payload: "" });
+  };
+
+  useEffect(() => {
+    loadTotal();
+  }, [cart]);
+
   return (
     <div>
       <h2>Carrito de Compras</h2>
       <h3>Productos</h3>
       <article className="box grid-responsive">
-        {products.length > 0 &&
-          products.map((el) => (
+        {products?.length > 0 &&
+          products?.map((el) => (
             <ProductItem key={el.id} data={el} addToCart={addToCart} />
           ))}
       </article>
       <h3>Carrito</h3>
       <article className="box">
+        <h4>TOTAL: ${total}</h4>
         <button onClick={clearCart}>Limpiar Carrito</button>
-        {cart.map((item, index) => (
-          <CartItem key={index} prodElegido={item} delFromCart={delFromCart} />
-        ))}
+        {cart?.length > 0 &&
+          cart?.map((item, index) => (
+            <CartItem
+              key={index}
+              prodElegido={item}
+              delFromCart={delFromCart}
+            />
+          ))}
       </article>
     </div>
   );
