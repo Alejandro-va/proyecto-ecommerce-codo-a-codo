@@ -68,8 +68,7 @@ export function shoppingReducer(state, action) {
 
     case TYPES.TOTAL_CART:
       let initialValue = 0;
-      console.log(state.cart);
-      let totalCart = state.cart.forEach(
+      state.cart.forEach(
         (product) => (initialValue += product.price * product.quantity)
       );
       return {
