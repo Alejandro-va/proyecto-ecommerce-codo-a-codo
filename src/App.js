@@ -1,10 +1,12 @@
+import { ScrollUpButton } from "./components/ScrollUpButton";
 import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   return (
-    <div>
+    <>
       <ShoppingCart />
-    </div>
+      <ScrollUpButton />
+    </>
   );
 }
 
