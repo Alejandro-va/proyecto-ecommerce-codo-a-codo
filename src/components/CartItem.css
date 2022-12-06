@@ -1,0 +1,41 @@
+.cart-item {
+  display: flex;
+  padding: 12px;
+  border-bottom: thin solid gray;
+}
+
+.cart-item:nth-child(1) {
+  border-top: thin solid gray;
+}
+
+.cart-item figure {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item figure {
+  max-width: 64px;
+  max-height: 64px;
+}
+
+.cart-item figure img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.cart-item .title {
+  margin: 14px auto;  
+}
+
+.cart-item .price {
+  margin: 12px auto;  
+}
+
+.btns-wrapper {
+  display: flex;
+}
+
+.btns-wrapper button:nth-child(1n+1) {
+  margin-right: 5px;
+  padding: 4px 12px;
+}
