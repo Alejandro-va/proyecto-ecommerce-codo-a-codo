@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+/* fallback */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.navbar {
+  display: flex;
+  box-shadow: 0 0 2px 0 grey;
+  align-items: center;
+  font-size: 1em;
+  background-color:#3761af;
+  color: white;
+  justify-content: space-between;
+}
+
+.group {
+  margin: 0px 7px;
+  display: flex;
+  align-items: center;
+}
+
+.mode {
+  cursor: pointer;
+  margin-inline: 23px;
+}
+.right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item{
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.navbar .logo {
+  font-size: 1.2em;
+  align-items: center;
+  display: flex;
+}
+
+.logo img {
+  max-width: 40px;
+  margin: 10px;
+}
+
+.material-icons {
+  font-size:1.8rem;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+}
+
+.contact {
+  margin-right: 23px;
+}
+
+@media (max-width: 700px) {
+  .item {
+    font-size: 13px;
+    padding: 0px;
+  }
+  .contact {
+    display: none;
+    margin-right: 23px;
+  }
+
+  .material-icons {
+    font-size: 20px;
+    margin: 4px;
+  }
+  .cart {
+    margin-right: 23px;
+  }
+}
+
+@media (max-width: 340px) {
+  .darkmode {
+    display: none;
+  }
+}
+
+
+  
