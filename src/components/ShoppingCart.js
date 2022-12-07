@@ -5,8 +5,13 @@ import {
   shoppingInitialState,
 } from "../reducers/shoppingReducer";
 import CartItem from "./CartItem";
+import { CartItemList } from "./CartItemList";
 import ProductItem from "./ProductItem";
+<<<<<<< HEAD
+import { ProductList } from "./ProductList";
+=======
 import Navbar from "./Navbar/Navbar";
+>>>>>>> main
 
 const ShoppingCart = () => {
   useEffect(() => {
@@ -58,31 +63,18 @@ const ShoppingCart = () => {
     <div>
       <Navbar />
       <h2>Tu tienda online 🛒</h2>
-      <h3>Productos</h3>
-      <article className="box grid-responsive">
-        {products?.length > 0 &&
-          products?.map((el) => (
-            <ProductItem key={el.id} data={el} addToCart={addToCart} />
-          ))}
-        {console.log(products.length)}
-      </article>
-      <h3>Carrito</h3>
-      <article className="box">
-        <h4>TOTAL: ${total}</h4>
+      <ProductList
+        products={products}
+        addToCart={addToCart}
+      />
+      <section className="box">
+        <h4>TOTAL: ${total.toFixed(2)}</h4>
         <button onClick={clearCart}>Limpiar Carrito</button>
-
-        {/*************************************************
-        PRODUCTOS SELECIONADOS
-        *************************************************/}
-        {cart?.length > 0 &&
-          cart?.map((item, index) => (
-            <CartItem
-              key={index}
-              prodElegido={item}
-              delFromCart={delFromCart}
-            />
-          ))}
-      </article>
+        <CartItemList
+          cartItems={cart}
+          delFromCart={delFromCart}
+        />
+      </section>
     </div>
   );
 };

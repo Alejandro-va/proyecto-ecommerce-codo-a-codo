@@ -8,5 +8,7 @@
 5. btn whatsApp
 6. btn scroll
 7. Si estan de acuerdo un fomulario de contacto(opcional)
+8. Header y Footer
+9. Navegacion: Rutas y Vistas
 
 lo q consideren que falta lo anotan aca

@@ -1,19 +1,28 @@
 import React from "react";
+import './ProductItem.css';
 
 //data es una variable q trae toda la informacion del estadoinicial del producto desde  shoppinReducer
 const ProductItem = ({ data, addToCart }) => {
   let { id, title, price, image } = data;
+
+  const displayTitle = title && title.length > 40 ? title.slice(0, 40).concat("...") : title;
+
   return (
-    <div style={{ border: "thin solid gray", padding: "1rem" }}>
+    <div className="product-item">
       <img
         src={image}
-        style={{ maxWidth: "200px", maxHeight: "200px" }}
         alt={`example ${title} product`}
       />
-      <h4>{title}</h4>
-      <h5>${price}</h5>
-      {/* si le quito la funcion flecha al boton, cuando cargeu la pag se cargarian de una todos los id */}
-      <button onClick={() => addToCart(id)}>Agregar</button>
+      <div className="info">
+        <h4>
+          <a href="#" title={title}>
+            {displayTitle}
+          </a>
+        </h4>
+        <h5>$ {price}</h5>
+        {/* si le quito la funcion flecha al boton, cuando cargeu la pag se cargarian de una todos los id */}
+        <button onClick={() => addToCart(id)}>Agregar</button>
+      </div>
     </div>
   );
 };

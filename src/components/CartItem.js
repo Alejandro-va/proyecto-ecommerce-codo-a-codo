@@ -1,17 +1,26 @@
 import React from "react";
+import './CartItem.css';
 
 const CartItem = ({ prodElegido, delFromCart }) => {
-  const { id, name, price, quantity } = prodElegido;
+  const { id, title, price, quantity, image } = prodElegido;
+
   return (
-    <div style={{ borderBottom: "thin solid gray" }}>
-      <h4>{name}</h4>
-      <h5>
-        ${price}.00 x {quantity} = ${price * quantity}.00
-      </h5>
-      <button onClick={() => delFromCart(id)}>Eliminar Uno</button>
-      <br />
-      <button onClick={() => delFromCart(id, true)}>Eliminar todos</button>
-    </div>
+    <li className={'cart-item'}>
+      <figure>
+        <img src={image} />
+      </figure>
+      <div>
+        <h4 className="title">{title}</h4>
+        <h5 className="price">
+          ${price}.00 x {quantity} = ${price * quantity}.00
+        </h5>
+        <div className="btns-wrapper">
+          <button onClick={() => delFromCart(id)}>Eliminar Uno</button>
+          <br />
+          <button onClick={() => delFromCart(id, true)}>Eliminar todos</button>
+        </div>
+      </div>
+    </li>
   );
 };
 
