@@ -10,7 +10,7 @@ import Navbar from "./Navbar/Navbar";
 
 const ShoppingCart = () => {
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://fakestoreapi.com/products?limit=8")
       .then((response) => response.json())
       .then((data) => loadProducts(data));
   }, []);
@@ -56,8 +56,8 @@ const ShoppingCart = () => {
 
   return (
     <div>
-      <Navbar/>
-      <h2>Carrito de Compras</h2>
+      <Navbar />
+      <h2>Tu tienda online 🛒</h2>
       <h3>Productos</h3>
       <article className="box grid-responsive">
         {products?.length > 0 &&
