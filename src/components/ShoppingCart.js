@@ -7,11 +7,15 @@ import {
 import CartItem from "./CartItem";
 import { CartItemList } from "./CartItemList";
 import ProductItem from "./ProductItem";
+<<<<<<< HEAD
 import { ProductList } from "./ProductList";
+=======
+import Navbar from "./Navbar/Navbar";
+>>>>>>> main
 
 const ShoppingCart = () => {
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://fakestoreapi.com/products?limit=8")
       .then((response) => response.json())
       .then((data) => loadProducts(data));
   }, []);
@@ -57,7 +61,8 @@ const ShoppingCart = () => {
 
   return (
     <div>
-      <h2>Carrito de Compras</h2>
+      <Navbar />
+      <h2>Tu tienda online 🛒</h2>
       <ProductList
         products={products}
         addToCart={addToCart}
