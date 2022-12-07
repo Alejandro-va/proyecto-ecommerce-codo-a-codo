@@ -6,6 +6,7 @@ import {
 } from "../reducers/shoppingReducer";
 import CartItem from "./CartItem";
 import ProductItem from "./ProductItem";
+import Navbar from "./Navbar/Navbar";
 
 const ShoppingCart = () => {
   useEffect(() => {
@@ -55,6 +56,7 @@ const ShoppingCart = () => {
 
   return (
     <div>
+      <Navbar/>
       <h2>Carrito de Compras</h2>
       <h3>Productos</h3>
       <article className="box grid-responsive">
