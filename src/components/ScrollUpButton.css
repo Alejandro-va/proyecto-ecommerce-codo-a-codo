@@ -1,0 +1,24 @@
+.scroll-top-btn {
+  position: fixed;
+  right: 5vh;
+  bottom: 5vh;
+  padding: 20px;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-top-btn img {
+  width: 32px;
+  height: 32px;
+}
+
+@media screen and (width > 650px) {
+  .scroll-top-btn {
+    right: 10vh;
+    bottom: 10vh;
+  }
+}
