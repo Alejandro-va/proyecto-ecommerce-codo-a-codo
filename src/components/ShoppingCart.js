@@ -62,11 +62,16 @@ const ShoppingCart = () => {
           products?.map((el) => (
             <ProductItem key={el.id} data={el} addToCart={addToCart} />
           ))}
+        {console.log(products.length)}
       </article>
       <h3>Carrito</h3>
       <article className="box">
         <h4>TOTAL: ${total}</h4>
         <button onClick={clearCart}>Limpiar Carrito</button>
+
+        {/*************************************************
+        PRODUCTOS SELECIONADOS
+        *************************************************/}
         {cart?.length > 0 &&
           cart?.map((item, index) => (
             <CartItem
