@@ -13,6 +13,10 @@ const ShoppingCart = () => {
       <section className="box">
         <h4>TOTAL: ${total.toFixed(2)}</h4>
         <button onClick={clearCart}>Limpiar Carrito</button>
+
+        {/*************************************************
+        PRODUCTOS SELECIONADOS
+        *************************************************/}
         {cart?.length > 0 &&
           cart?.map((item, index) => (
             <CartItem
