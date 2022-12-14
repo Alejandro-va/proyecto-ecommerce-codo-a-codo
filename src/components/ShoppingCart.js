@@ -19,7 +19,12 @@ const ShoppingCart = () => {
   const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
 
   //hago referencia al objeto q inicia el estado: shoppingInitialState
-  const { cart, products, total } = state;
+  const { cart, products, total, categories } = state;
+
+  //metodo para filtrar productos
+  const filterProducts = (category) => {
+    dispatch({ type: TYPES.FILTER_PRODUCTS, payload: category });
+  };
 
   //metodo para cargar 'products' con API
   const loadProducts = (products) => {
@@ -72,6 +77,33 @@ const ShoppingCart = () => {
       <Navbar />
       <ScrollButton isScrolling={scrollHeight} />
       <h2 style={{ textAlign: "center" }}>Tu tienda online 🛒</h2>
+      <h3 style={{ display: "inline-block", marginLeft: "20px" }}>
+        Categorias:
+      </h3>
+      <ul>
+        {categories?.length > 0 &&
+          categories?.map((c) => (
+            <li
+              key={c}
+              style={{ display: "inline-block", marginRight: "10px" }}
+            >
+              <button
+                className="boton-personalizado"
+                onClick={() => filterProducts(c)}
+              >
+                {c.toUpperCase()}
+              </button>
+            </li>
+          ))}
+        <li key="all" style={{ display: "inline-block" }}>
+          <button
+            className="boton-personalizado"
+            onClick={() => filterProducts("all")}
+          >
+            MOSTRAR TODOS
+          </button>
+        </li>
+      </ul>
       <h3 style={{ display: "inline-block", marginLeft: "20px" }}>
         Productos:
       </h3>
