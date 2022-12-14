@@ -18,3 +18,24 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
 }
+
+/* BOTONES */
+.boton-personalizado {
+  text-decoration: none;
+  background-color: #3761af;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+}
+
+.boton-personalizado-borrar {
+  margin-bottom: 1rem;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  background-color: #e12323;
+}

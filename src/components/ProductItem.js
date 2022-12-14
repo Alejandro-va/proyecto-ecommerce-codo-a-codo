@@ -18,7 +18,9 @@ const ProductItem = ({ data, addToCart }) => {
       <h4>{title}</h4>
       <h5>${price}</h5>
       {/* si le quito la funcion flecha al boton, cuando cargeu la pag se cargarian de una todos los id */}
-      <button onClick={() => addToCart(id)}>Agregar</button>
+      <button className="boton-personalizado" onClick={() => addToCart(id)}>
+        Agregar
+      </button>
     </div>
   );
 };

@@ -8,9 +8,21 @@ const CartItem = ({ prodElegido, delFromCart }) => {
       <h5>
         ${price}.00 x {quantity} = ${price * quantity}
       </h5>
-      <button onClick={() => delFromCart(id)}>Eliminar Uno</button>
-      <br />
-      <button onClick={() => delFromCart(id, true)}>Eliminar todos</button>
+      <button
+        className="boton-personalizado-borrar"
+        style={{ display: "inline" }}
+        onClick={() => delFromCart(id)}
+      >
+        Eliminar Uno
+      </button>
+
+      <button
+        className="boton-personalizado-borrar"
+        onClick={() => delFromCart(id, true)}
+        style={{ display: "inline", marginLeft: "1rem" }}
+      >
+        Eliminar todos
+      </button>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import {
 import CartItem from "./CartItem";
 import ProductItem from "./ProductItem";
 import Navbar from "./Navbar/Navbar";
+import ScrollButton from "./scrollButton/ScrollButton";
 
 const ShoppingCart = () => {
   useEffect(() => {
@@ -54,9 +55,22 @@ const ShoppingCart = () => {
     loadTotal();
   }, [cart]);
 
+  //SCROLL
+  const [scrollHeight, setScrollHeight] = React.useState(0);
+
+  const handleScroll = () => {
+    const position = window.pageYOffset; //obtiene el scroll en y
+    setScrollHeight(position);
+    //console.log(position);
+  };
+  React.useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, [scrollHeight]);
+
   return (
     <div>
       <Navbar />
+      <ScrollButton isScrolling={scrollHeight} />
       <h2 style={{ textAlign: "center" }}>Tu tienda online 🛒</h2>
       <h3 style={{ display: "inline-block", marginLeft: "20px" }}>
         Productos:
@@ -71,7 +85,9 @@ const ShoppingCart = () => {
       <h3 style={{ display: "inline-block", marginLeft: "20px" }}>Carrito:</h3>
       <article className="box">
         <h4>TOTAL: ${total.toFixed(2)}</h4>
-        <button onClick={clearCart}>Limpiar Carrito</button>
+        <button className="boton-personalizado-borrar" onClick={clearCart}>
+          Limpiar Carrito
+        </button>
 
         {/*************************************************
         PRODUCTOS SELECIONADOS

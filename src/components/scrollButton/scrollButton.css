@@ -1,0 +1,20 @@
+.up {
+  width: 2.5rem;
+  height: 2.4rem;
+  border-radius: 20%;
+  position: fixed;
+  display: block;
+  bottom: 12.1vh;
+  /* bottom: 25vh; */
+  right: 1.5rem;
+  border: none;
+  /*   display: none; */
+  background: rgb(246, 241, 241);
+  z-index: 20;
+  cursor: pointer;
+}
+
+.UpIco {
+  font-size: 1.5rem;
+  width: 100%;
+}
