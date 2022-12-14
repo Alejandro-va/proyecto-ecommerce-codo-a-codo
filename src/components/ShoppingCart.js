@@ -6,10 +6,11 @@ import {
 } from "../reducers/shoppingReducer";
 import CartItem from "./CartItem";
 import ProductItem from "./ProductItem";
+import Navbar from "./Navbar/Navbar";
 
 const ShoppingCart = () => {
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://fakestoreapi.com/products?limit=8")
       .then((response) => response.json())
       .then((data) => loadProducts(data));
   }, []);
@@ -55,18 +56,26 @@ const ShoppingCart = () => {
 
   return (
     <div>
-      <h2>Carrito de Compras</h2>
-      <h3>Productos</h3>
+      <Navbar />
+      <h2 style={{ textAlign: "center" }}>Tu tienda online 🛒</h2>
+      <h3 style={{ display: "inline-block", marginLeft: "20px" }}>
+        Productos:
+      </h3>
       <article className="box grid-responsive">
         {products?.length > 0 &&
           products?.map((el) => (
             <ProductItem key={el.id} data={el} addToCart={addToCart} />
           ))}
+        {console.log(products.length)}
       </article>
-      <h3>Carrito</h3>
+      <h3 style={{ display: "inline-block", marginLeft: "20px" }}>Carrito:</h3>
       <article className="box">
-        <h4>TOTAL: ${total}</h4>
+        <h4>TOTAL: ${total.toFixed(2)}</h4>
         <button onClick={clearCart}>Limpiar Carrito</button>
+
+        {/*************************************************
+        PRODUCTOS SELECIONADOS
+        *************************************************/}
         {cart?.length > 0 &&
           cart?.map((item, index) => (
             <CartItem
