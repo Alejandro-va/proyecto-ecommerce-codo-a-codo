@@ -8,6 +8,14 @@
   src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
 }
 
+.menu{
+ display: none !important;
+}
+
+.menu-responsive{
+ display:none
+}
+
 .navbar {
   display: flex;
   box-shadow: 0 0 2px 0 grey;
@@ -77,14 +85,32 @@
 }
 
 @media (max-width: 700px) {
+ .menu{
+  display:flex !important;
+  cursor: pointer;
+ }
+
+ .menu-responsive{ 
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #3761af;
+  z-index: 1;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ }
+
+ .full-screen{
+  display: none;
+ }
   .item {
     font-size: 13px;
     padding: 0px;
   }
-  .contact {
-    display: none;
-    margin-right: 23px;
-  }
+
 
   .material-icons {
     font-size: 20px;
@@ -94,12 +120,3 @@
     margin-right: 23px;
   }
 }
-
-@media (max-width: 340px) {
-  .darkmode {
-    display: none;
-  }
-}
-
-
-  
