@@ -1,71 +1,17 @@
-import React, { useReducer, useEffect } from "react";
-import { TYPES } from "../actions/shoppingAction";
-import {
-  shoppingReducer,
-  shoppingInitialState,
-} from "../reducers/shoppingReducer";
+import React, { useContext } from "react";
 import CartItem from "./CartItem";
-import ProductItem from "./ProductItem";
+import { ProductContext } from "../contexts/ProductContext";
 
 const ShoppingCart = () => {
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((response) => response.json())
-      .then((data) => loadProducts(data));
-  }, []);
+  const { cart, total, delFromCart, clearCart } = useContext(ProductContext);
 
-  const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
-
-  //hago referencia al objeto q inicia el estado: shoppingInitialState
-  const { cart, products, total } = state;
-
-  //metodo para cargar 'products' con API
-  const loadProducts = (products) => {
-    dispatch({ type: TYPES.LOAD_PRODUCTS, payload: products });
-  };
-
-  //metodos para productos
-  const addToCart = (id) => {
-    dispatch({ type: TYPES.ADD_TO_CART, payload: id });
-  };
-  const delFromCart = (id, all = false) => {
-    //console.log("borrar:", id);
-    //dispatch({ type: TYPES.REMOVE_ALL_FROM_CART, payload: id });
-    if (all) {
-      dispatch({ type: TYPES.REMOVE_ALL_FROM_CART, payload: id });
-      console.log(id, all);
-    } else {
-      dispatch({ type: TYPES.REMOVE_ONE_FROM_CART, payload: id });
-      console.log(id, all);
-    }
-  };
-
-  const clearCart = () => {
-    dispatch({ type: TYPES.CLEAR_CART });
-  };
-
-  //metodo para obtener total de carrito
-  const loadTotal = () => {
-    dispatch({ type: TYPES.TOTAL_CART, payload: "" });
-  };
-
-  useEffect(() => {
-    loadTotal();
-  }, [cart]);
-
+  // TODO add validations on fields to ensure the email happens successfully
+  // If there are no items in the cart, show image that navigates to Products page
   return (
-    <div>
-      <h2>Carrito de Compras</h2>
-      <h3>Productos</h3>
-      <article className="box grid-responsive">
-        {products?.length > 0 &&
-          products?.map((el) => (
-            <ProductItem key={el.id} data={el} addToCart={addToCart} />
-          ))}
-      </article>
+    <article>
       <h3>Carrito</h3>
-      <article className="box">
-        <h4>TOTAL: ${total}</h4>
+      <section className="box">
+        <h4>TOTAL: ${total.toFixed(2)}</h4>
         <button onClick={clearCart}>Limpiar Carrito</button>
         {cart?.length > 0 &&
           cart?.map((item, index) => (
@@ -75,8 +21,8 @@ const ShoppingCart = () => {
               delFromCart={delFromCart}
             />
           ))}
-      </article>
-    </div>
+      </section>
+    </article>
   );
 };
 
