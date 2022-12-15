@@ -22,6 +22,14 @@ const Navbar = () => {
     }
   };
 
+  const getCartItemCount = () => {
+    let count = 0;
+    if (cart.length > 0) {
+      cart.forEach(item => count += item.quantity)
+    }
+    return count;
+  }
+
   return (
     <header className="header">
       <nav className="navbar">
@@ -61,7 +69,7 @@ const Navbar = () => {
             <i className="material-icons">shopping_cart</i>
             <a href="/cart" className="item">
               <span className="detail">Cart</span>
-              <span className="cart-items-count">{!!cart ? cart.length : 0}</span>
+              <span className="cart-items-count">{getCartItemCount()}</span>
             </a>
           </div>
           <div className="group contact">
