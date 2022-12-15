@@ -16,8 +16,8 @@ const ShoppingCart = () => {
     // navegar a my-orders
     addOneOrder({ cart: cart, total: total, purchased: new Date() });
     clearCart();
-    navigate('/my-orders');
-  }
+    navigate("/my-orders");
+  };
 
   // TODO add validations on fields to ensure the email happens successfully
   // If there are no items in the cart, show image/message of empty cart and navigate to Products page
