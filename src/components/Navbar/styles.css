@@ -1,19 +1,26 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
 /* fallback */
 @font-face {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+  src: url(https://fonts.gstatic.com/s/materialicons/v139/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)
+    format("woff2");
 }
 
-.menu{
- display: none !important;
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
-.menu-responsive{
- display:none
+.menu {
+  display: none !important;
+}
+
+.menu-responsive {
+  display: none;
 }
 
 .navbar {
@@ -21,7 +28,7 @@
   box-shadow: 0 0 2px 0 grey;
   align-items: center;
   font-size: 1em;
-  background-color:#3761af;
+  background-color: #3761af;
   color: white;
   justify-content: space-between;
 }
@@ -42,7 +49,7 @@
   align-items: center;
 }
 
-.item{
+.item {
   padding: 10px;
   text-decoration: none;
   color: white;
@@ -60,11 +67,11 @@
 }
 
 .material-icons {
-  font-size:1.8rem;
+  font-size: 1.8rem;
 }
 
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
@@ -75,7 +82,7 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -webkit-font-feature-settings: 'liga';
+  -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
   display: inline-block;
 }
@@ -85,32 +92,41 @@
 }
 
 @media (max-width: 700px) {
- .menu{
-  display:flex !important;
-  cursor: pointer;
- }
+  .menu {
+    display: flex !important;
+    cursor: pointer;
+  }
 
- .menu-responsive{ 
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #3761af;
-  z-index: 1;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
- }
+  .menu-responsive {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #3761af;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
- .full-screen{
-  display: none;
- }
+  .group {
+    margin-bottom: 1rem;
+  }
+  .group.menu {
+    font-weight: bold;
+  }
+
+  .detail {
+    margin-left: 0.8rem;
+  }
+  .full-screen {
+    display: none;
+  }
   .item {
     font-size: 13px;
     padding: 0px;
   }
-
 
   .material-icons {
     font-size: 20px;

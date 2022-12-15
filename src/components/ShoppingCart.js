@@ -83,7 +83,9 @@ const ShoppingCart = () => {
       <Navbar />
       <ScrollButton isScrolling={scrollHeight} />
       <BtnWhatsapp />
-      <h2 style={{ textAlign: "center" }}>Tu tienda online 🛒</h2>
+      <h2 style={{ textAlign: "center", marginTop: "5rem" }}>
+        Tu tienda online 🛒
+      </h2>
       <h3 style={{ display: "inline-block", marginLeft: "20px" }}>
         Categorias:
       </h3>
