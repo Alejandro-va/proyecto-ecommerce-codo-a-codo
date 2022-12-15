@@ -1,0 +1,14 @@
+.body-login{
+ margin-left: 25%;
+ margin-top: 50%
+}
+
+.inputs{
+ display: flex;
+ flex-direction: column;
+}
+
+.inputs input
+{
+ margin-left: 10px;
+}

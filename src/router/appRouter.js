@@ -13,51 +13,42 @@ import MyOrders from "../pages/MyOrders";
 export const appRouter = createBrowserRouter([
   {
     path: "/",
-    element:
-      <Home />,
+    element: <Home />,
     children: [
       {
         path: "products",
-        element:
-        <Products />
+        element: <Products />,
       },
       {
         path: "profile",
-        element:
-        <Profile />
+        element: <Profile />,
       },
       {
         path: "cart",
-        element:
-        <ShoppingCart />
+        element: <ShoppingCart />,
       },
       {
         path: "my-orders",
-        element:
-        <MyOrders />
+        element: <MyOrders />,
       },
       {
         path: "contact",
-        element:
-        <ContactForm />
+        element: <ContactForm />,
       },
-    ]
-  },
-  {
-    path: "login",
-    element:
-     <Login />
-  },
-  {
-    path: "register",
-    element:
-     <Register />
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+    ],
   },
   {
     path: "*",
-    element:
-      <Page404 />
-  }
+    element: <Page404 />,
+  },
 ]);
 
 export default appRouter;
