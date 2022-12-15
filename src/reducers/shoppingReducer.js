@@ -12,6 +12,9 @@ export const shoppingInitialState = {
 //FUNCION REDUCER
 export function shoppingReducer(state, action) {
   switch (action.type) {
+    /****************************************************
+     *SELECCIONAR PRODUCTOS POR CATEGORIA
+     ****************************************************/
     case TYPES.FILTER_PRODUCTS: {
       let filterProducts = state.allProducts;
       if (action.payload !== "all") {

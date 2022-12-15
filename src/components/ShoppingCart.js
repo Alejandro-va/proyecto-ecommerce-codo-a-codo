@@ -8,6 +8,7 @@ import CartItem from "./CartItem";
 import ProductItem from "./ProductItem";
 import Navbar from "./Navbar/Navbar";
 import ScrollButton from "./scrollButton/ScrollButton";
+import BtnWhatsapp from "./whatsapp.jsx/BtnWhatsapp";
 
 const ShoppingCart = () => {
   useEffect(() => {
@@ -21,6 +22,9 @@ const ShoppingCart = () => {
   //hago referencia al objeto q inicia el estado: shoppingInitialState
   const { cart, products, total, categories } = state;
 
+  /****************************************************
+   *METODOS DEL CARRITO
+   ****************************************************/
   //metodo para filtrar productos
   const filterProducts = (category) => {
     dispatch({ type: TYPES.FILTER_PRODUCTS, payload: category });
@@ -60,11 +64,13 @@ const ShoppingCart = () => {
     loadTotal();
   }, [cart]);
 
-  //SCROLL
+  /****************************************************
+   *SCROLL
+   ****************************************************/
   const [scrollHeight, setScrollHeight] = React.useState(0);
 
   const handleScroll = () => {
-    const position = window.pageYOffset; //obtiene el scroll en y
+    const position = window.pageYOffset; //obtiene el scroll en "Y"
     setScrollHeight(position);
     //console.log(position);
   };
@@ -76,10 +82,14 @@ const ShoppingCart = () => {
     <div>
       <Navbar />
       <ScrollButton isScrolling={scrollHeight} />
+      <BtnWhatsapp />
       <h2 style={{ textAlign: "center" }}>Tu tienda online 🛒</h2>
       <h3 style={{ display: "inline-block", marginLeft: "20px" }}>
         Categorias:
       </h3>
+      {/*************************************************
+        RENDERIZAR LAS CART DE LOS PRODUCTOS
+        *************************************************/}
       <ul>
         {categories?.length > 0 &&
           categories?.map((c) => (
@@ -122,7 +132,7 @@ const ShoppingCart = () => {
         </button>
 
         {/*************************************************
-        PRODUCTOS SELECIONADOS
+        RENDERIZAR LOS PRODUCTOS SELECIONADOS
         *************************************************/}
         {cart?.length > 0 &&
           cart?.map((item, index) => (
