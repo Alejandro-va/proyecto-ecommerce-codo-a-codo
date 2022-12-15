@@ -1,0 +1,131 @@
+.contact {
+  background-color: var(--black);
+  height: auto;
+  display: grid;
+  margin-top: 2rem;
+}
+
+.contact__A,
+.contact__B {
+  /* border: 1px solid red; */
+}
+
+.contact__A {
+  color: var(--white);
+  padding: 1.5rem;
+  line-height: 1.5;
+  text-align: justify;
+  /* border: 1px solid red; */
+}
+
+.contact__h2 {
+  text-align: center;
+  margin: 2rem 0 1.5rem 0;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.contact__P {
+  padding: 1rem;
+}
+
+.contact__B {
+  /* border: 10px solid rgb(173, 238, 21); */
+}
+
+.formulario {
+  /* border: 1px solid rgb(50, 23, 207); */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+  /*   margin-top: 1rem; */
+}
+
+.formCaption {
+  width: 80%;
+  /* border: 1px solid blue; */
+  color: #000;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+.formh2 {
+  width: 80%;
+  /*  border: 1px solid rgb(179, 255, 0); */
+  padding: 0.5rem;
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: "Josefin Sans", sans-serif;
+}
+.formh3 {
+  width: 80%;
+  /* border: 10px solid rgb(179, 255, 0); */
+  padding: 0.5rem;
+  display: inline-block;
+  font-family: "Josefin Sans", sans-serif;
+}
+.inputs {
+  /* border: 1px solid blue; */
+  width: 95%;
+  align-self: center;
+}
+.area {
+  /* border: 1px solid blue; */
+  width: 95%;
+  margin: 0.5rem;
+  text-align: center;
+}
+.botonEnviar {
+  /* border: 1px solid blue; */
+  width: 95%;
+  margin: 0.5rem;
+  text-align: center;
+}
+
+#inputName,
+#inputEmail,
+#inputPhone {
+  width: 90%;
+  margin: 0.5rem;
+  border: thin solid #dedede;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  display: block;
+  font-size: 1rem;
+  line-height: 1;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+#textareas {
+  width: 90%;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  line-height: 1;
+  resize: none;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+input[type="submit"] {
+  width: 90%;
+  border: thin solid #444;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  color: #444;
+  text-transform: none;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: center;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+}
+@media screen and (min-width: 768px) {
+  .contact {
+    grid-template-columns: 1fr 1fr;
+  }
+  .formulario {
+    margin-top: 1rem;
+  }
+}
