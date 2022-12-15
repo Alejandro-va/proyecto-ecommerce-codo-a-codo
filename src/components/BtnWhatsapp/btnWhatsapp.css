@@ -1,0 +1,23 @@
+.btnw {
+  width: 2.6rem;
+  height: 2.7rem;
+  border-radius: 50%;
+  position: fixed;
+  display: block;
+  bottom: 25vh;
+  /* left: 2.5vw; */
+  right: 1.5rem;
+  /* right: 2.5vw; */
+
+  /* border: none; */
+  /*   display: none; */
+  background: rgb(0, 255, 76);
+  background: rgb(10, 10, 10);
+  background: transparent;
+  z-index: 20;
+}
+
+/* .containerBtnw {
+  width: 2.4rem;
+  height: 2.5rem;
+} */

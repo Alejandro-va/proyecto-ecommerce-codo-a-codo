@@ -7,7 +7,7 @@ const ProductContext = createContext();
 
 const ProductProvider = (props) => {
   const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
-  const { cart, products, total } = state;
+  const { cart, products, total, categories } = state;
 
   useEffect(() => {
     !!cart && loadTotal();
@@ -23,6 +23,11 @@ const ProductProvider = (props) => {
       dispatch({ type: TYPES.LOAD_CART, payload: cartSaved });
     }
   }, [])
+
+  //metodo para filtrar productos
+  const filterProductsByCategory = (category) => {
+    dispatch({ type: TYPES.FILTER_PRODUCTS, payload: category });
+  };
 
   const addToCart = (id) => {
     dispatch({ type: TYPES.ADD_TO_CART, payload: id });
@@ -47,16 +52,18 @@ const ProductProvider = (props) => {
 
   return (
     <ProductContext.Provider
-      value={{ 
+      value={{
         products,
         cart,
         total,
+        categories,
+        filterProductsByCategory,
         addToCart,
         delFromCart,
         clearCart
       }}
     >
-    { props.children }
+      {props.children}
     </ProductContext.Provider >
   )
 }

@@ -6,15 +6,41 @@ export const shoppingInitialState = {
   products: [],
   cart: [],
   total: 0,
+  categories: [],
+  allProducts: [],
 };
 
 //FUNCION REDUCER
 export function shoppingReducer(state, action) {
   switch (action.type) {
-    case TYPES.LOAD_PRODUCTS: {
+    /****************************************************
+     *SELECCIONAR PRODUCTOS POR CATEGORIA
+     ****************************************************/
+    case TYPES.FILTER_PRODUCTS: {
+      let filterProducts = state.allProducts;
+      if (action.payload !== "all") {
+        filterProducts = state.allProducts.filter((product) => {
+          return product.category === action.payload;
+        });
+      }
       return {
         ...state,
+        products: filterProducts,
+      };
+    }
+    
+    case TYPES.LOAD_PRODUCTS: {
+      const categories = action.payload.reduce((acc, product) => {
+        if (!acc.includes(product.category)) {
+          acc.push(product.category);
+        }
+        return acc;
+      }, []);
+      return {
+        ...state,
+        allProducts: action.payload,
         products: action.payload,
+        categories: categories,
       };
     }
 

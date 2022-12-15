@@ -1,8 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import CartItem from "./CartItem";
 import { ProductContext } from "../contexts/ProductContext";
 import { addOneOrder } from "../services/localStorageService";
 import { useNavigate } from "react-router-dom";
+import BtnWhatsapp from "./BtnWhatsapp/BtnWhatsapp";
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const ShoppingCart = () => {
 
   // TODO add validations on fields to ensure the email happens successfully
   // If there are no items in the cart, show image/message of empty cart and navigate to Products page
-  return (      
+  return (
     <article>
       <h3>Carrito</h3>
       <section className="box">
@@ -30,7 +31,7 @@ const ShoppingCart = () => {
         </button>
 
         {/*************************************************
-        PRODUCTOS SELECIONADOS
+        RENDERIZAR LOS PRODUCTOS SELECIONADOS
         *************************************************/}
         {cart?.length > 0 &&
           cart?.map((item, index) => (
@@ -42,7 +43,7 @@ const ShoppingCart = () => {
           ))}
       </section>
 
-      <button onClick={handleCheckout}>
+      <button onClick={handleCheckout} disabled={cart.length == 0}>
         Purchase
       </button>
     </article>

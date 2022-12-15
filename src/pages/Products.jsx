@@ -5,13 +5,17 @@ import { ProductContext } from "../contexts/ProductContext";
 export const Products = () => {
   const { 
     products, 
-    addToCart
+    addToCart,
+    categories,
+    filterProductsByCategory
    } = useContext(ProductContext);
 
   return (
     <ProductList
       products={products}
       addToCart={addToCart}
+      categories={categories}
+      filterProductsByCategory={filterProductsByCategory}
     />
   )
 }
