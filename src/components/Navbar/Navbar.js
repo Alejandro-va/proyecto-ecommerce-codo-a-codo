@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import { ProductContext } from "../../contexts/ProductContext";
+import { SessionContext } from "../../contexts/SessionContext";
 import "./styles.css";
-
+// TODO item count not counting 'quantity', it's counting array.length
 const Navbar = () => {
   const [mode, setMode] = useState("bedtime");
   const [respMenu, setRespMenu] = useState(false);
+  const { loggedUser } = useContext(SessionContext)
+  const { cart } = useContext(ProductContext);
 
   let setModeSite = () => {
     if (mode === "bedtime") {
@@ -19,19 +24,21 @@ const Navbar = () => {
 
   return (
     <header className="header">
-      <nav class="navbar">
-        <div className="logo">
-          <img
-            src="https://github.com/subeshb1/GrabCheap/blob/master/img/logo_inverse.jpg?raw=true"
-            alt="logo"
-          />
-          <div class="text"> Ecommerce </div>
-        </div>
+      <nav className="navbar">
+        <Link to='/products'>
+          <div className="logo">
+            <img
+              src="https://github.com/subeshb1/GrabCheap/blob/master/img/logo_inverse.jpg?raw=true"
+              alt="logo"
+            />
+            <div className="text"> Ecommerce </div>
+          </div>
+        </Link>
 
         <div className="right full-screen">
           <div className="group darkmode" onClick={() => setModeSite()}>
-            <div class="mode">
-              <i class="material-icons" onClick={() => setModeSite}>
+            <div className="mode">
+              <i className="material-icons" onClick={() => setModeSite}>
                 {mode}
               </i>
             </div>
@@ -39,25 +46,32 @@ const Navbar = () => {
 
           <div className="group">
             <i className="material-icons">account_circle</i>
-            <a href="/login" className="item">
-              <span className="detail">Sign In</span>
-            </a>
+            {!loggedUser ? (
+              <a href="/login" className="item">
+                <span className="detail">Sign In</span>
+              </a>
+            ) : (
+              <a href="/profile" className="item">
+                <span className="detail">{loggedUser.email}</span>
+              </a>
+            )}
           </div>
 
-          <div className="group cart ">
+          <div className="group cart">
             <i className="material-icons">shopping_cart</i>
             <a href="/cart" className="item">
               <span className="detail">Cart</span>
+              <span className="cart-items-count">{!!cart ? cart.length : 0}</span>
             </a>
           </div>
-          <div class="group contact">
+          <div className="group contact">
             <i className="material-icons">call</i>
-            <a href="/contacto" className="item">
+            <a href="/contact" className="item">
               <span className="detail">Contacto</span>
             </a>
           </div>
         </div>
-        <div class="group menu" onClick={() => setRespMenu(true)}>
+        <div className="group menu" onClick={() => setRespMenu(true)}>
           <i className="material-icons">menu</i>
           <span className="detail">Menu</span>
         </div>
@@ -65,8 +79,8 @@ const Navbar = () => {
       {respMenu && (
         <div className="menu-responsive">
           <div className="group darkmode" onClick={() => setModeSite()}>
-            <div class="mode">
-              <i class="material-icons" onClick={() => setModeSite}>
+            <div className="mode">
+              <i className="material-icons" onClick={() => setModeSite}>
                 {mode}
               </i>
             </div>
@@ -84,13 +98,13 @@ const Navbar = () => {
               <span className="detail">CART</span>
             </a>
           </div>
-          <div class="group contact">
+          <div className="group contact">
             <a href="/contacto" className="item">
               <i className="material-icons">call</i>
               <span className="detail">CONTACT</span>
             </a>
           </div>
-          <div class="group menu" onClick={() => setRespMenu(false)}>
+          <div className="group menu" onClick={() => setRespMenu(false)}>
             <i className="material-icons">close</i>
             <span className="detail">CLOSE</span>
           </div>

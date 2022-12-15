@@ -3,10 +3,11 @@ import React from "react";
 //data es una variable q trae toda la informacion del estadoinicial del producto desde  shoppinReducer
 const ProductItem = ({ data, addToCart }) => {
   let { id, title, price, image } = data;
+
   return (
     <div style={{ border: "thin solid gray", padding: "1rem" }}>
       <div
-        class="contentImg"
+        className="contentImg"
         style={{ width: "200px", height: "250px", margin: "auto" }}
       >
         <img

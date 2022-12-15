@@ -32,6 +32,18 @@
   align-items: center;
 }
 
+.cart-items-count {
+  /* display: block; */
+  background-color: aliceblue;
+  color: #3761af;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 50%;
+  position: relative;
+  top: -8px;
+  right: -2px;
+}
+
 .mode {
   cursor: pointer;
   margin-inline: 23px;

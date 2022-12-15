@@ -1,0 +1,10 @@
+.profile-container {
+  max-width: 40%;
+  margin: 24px auto;
+  display: flex;
+  flex-flow: column;
+}
+
+.profile-container h2 {
+  text-align: center;
+}
