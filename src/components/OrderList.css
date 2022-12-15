@@ -1,0 +1,16 @@
+.order {
+  border: 1px solid gray;
+  padding: 24px;
+  margin: 12px auto;
+  max-width: 40%;
+}
+
+.order-total {
+  font-size: 1.5em;
+}
+
+.order-date {
+  border-bottom: 1px solid black;
+  padding-bottom: 1ch;
+  font-size: 0.85em;
+}

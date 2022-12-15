@@ -1,10 +1,19 @@
-import ShoppingCart from "./components/ShoppingCart";
+import './App.css';
+import {
+  RouterProvider
+} from "react-router-dom"
+import appRouter from "./router/appRouter";
+import { ProductProvider } from './contexts/ProductContext';
+import { SessionProvider } from './contexts/SessionContext';
 
 function App() {
+
   return (
-    <div>
-      <ShoppingCart />
-    </div>
+    <SessionProvider>
+      <ProductProvider>
+        <RouterProvider router={appRouter} />
+      </ProductProvider>
+    </SessionProvider>
   );
 }
 
