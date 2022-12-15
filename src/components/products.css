@@ -1,4 +1,3 @@
-
 .search {
  width: 100%;
  display: flex;
@@ -7,33 +6,34 @@
 }
 
 .searchTerm {
- width: 100%;
- border: 3px solid #3361B7;
- padding: 5px;
- height: 20px;
- border-radius: 5px;
- outline: none;
- color: #9DBFAF;
+  width: 100%;
+  border: 3px solid #3361b7;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px;
+  outline: none;
+  color: #9dbfaf;
 }
 
-.searchTerm:focus{
- color: #3361B7;
+.searchTerm:focus {
+  color: #3361b7;
 }
 
 .searchButton {
- width: 40px;
- height: 36px;
- border: 1px solid #3361B7;
- background: #3361B7;
- text-align: center;
- color: #fff;
- border-radius: 0 5px 5px 0;
- cursor: pointer;
- font-size: 20px;
+  width: 40px;
+  height: 36px;
+  border: 1px solid #3361b7;
+  background: #3361b7;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
 }
 
-.wrap{
- width: 30%;
- top: 50%;
- left: 50%;
+
+.wrap {
+  width: 30%;
+  top: 50%;
+  left: 50%;
 }
