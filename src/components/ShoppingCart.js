@@ -26,7 +26,7 @@ const ShoppingCart = () => {
       <h3>Carrito</h3>
       <section className="box">
         <h4>TOTAL: ${total.toFixed(2)}</h4>
-        <button className="boton-personalizado-borrar" onClick={clearCart}>
+        <button className="boton-personalizado-borrar" onClick={() => clearCart()}>
           Limpiar Carrito
         </button>
 

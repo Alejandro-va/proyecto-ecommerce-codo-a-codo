@@ -57,8 +57,8 @@ export const ProductList = ({
           </li>
         </ul>
       </div>
-      <div class="wrap">
-        <div class="search">
+      <div className="wrap">
+        <div className="search">
           <input
             type="text"
             className="searchTerm"

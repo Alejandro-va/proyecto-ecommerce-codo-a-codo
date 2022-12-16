@@ -7,7 +7,7 @@ import "./styles.css";
 const Navbar = () => {
   const [mode, setMode] = useState("bedtime");
   const [respMenu, setRespMenu] = useState(false);
-  const { loggedUser } = useContext(SessionContext)
+  const { loggedUser } = useContext(SessionContext);
   const { cart } = useContext(ProductContext);
 
   let setModeSite = () => {
@@ -55,28 +55,28 @@ const Navbar = () => {
           <div className="group">
             <i className="material-icons">account_circle</i>
             {!loggedUser ? (
-              <a href="/login" className="item">
+              <Link to="/login" className="item">
                 <span className="detail">Sign In</span>
-              </a>
+              </Link>
             ) : (
-              <a href="/profile" className="item">
+              <Link to="/profile" className="item">
                 <span className="detail">{loggedUser.email}</span>
-              </a>
+              </Link>
             )}
           </div>
 
           <div className="group cart">
             <i className="material-icons">shopping_cart</i>
-            <a href="/cart" className="item">
+            <Link to="/cart" className="item">
               <span className="detail">Cart</span>
               <span className="cart-items-count">{getCartItemCount()}</span>
-            </a>
+            </Link>
           </div>
           <div className="group contact">
             <i className="material-icons">call</i>
-            <a href="/contact" className="item">
+            <Link to="/contact" className="item">
               <span className="detail">Contacto</span>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="group menu" onClick={() => setRespMenu(true)}>
@@ -94,23 +94,23 @@ const Navbar = () => {
             </div>
           </div>
           <div className="group">
-            <a href="/login" className="item">
+            <Link to="/login" className="item">
               <i className="material-icons">account_circle</i>
               <span className="detail">SIGN IN</span>
-            </a>
+            </Link>
           </div>
 
           <div className="group cart">
-            <a href="/cart" className="item">
+            <Link to="/cart" className="item">
               <i className="material-icons">shopping_cart</i>
               <span className="detail">CART</span>
-            </a>
+            </Link>
           </div>
           <div className="group contact">
-            <a href="/contacto" className="item">
+            <Link to="/contact" className="item">
               <i className="material-icons">call</i>
               <span className="detail">CONTACT</span>
-            </a>
+            </Link>
           </div>
           <div className="group menu" onClick={() => setRespMenu(false)}>
             <i className="material-icons">close</i>
