@@ -23,6 +23,9 @@
   display: none;
 }
 
+.detail {
+  margin: 0.3rem;
+}
 .navbar {
   display: flex;
   box-shadow: 0 0 2px 0 grey;
@@ -34,7 +37,7 @@
 }
 
 .group {
-  margin: 0px 7px;
+  margin: 0px 2px;
   display: flex;
   align-items: center;
 }
