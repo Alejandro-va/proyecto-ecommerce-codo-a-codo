@@ -14,6 +14,10 @@
   top: 0;
   width: 100%;
 }
+.grupo-icono {
+  /* border: solid red; */
+  margin-right: 5rem;
+}
 
 .menu {
   display: none !important;
@@ -23,6 +27,9 @@
   display: none;
 }
 
+.detail {
+  margin: 0.3rem;
+}
 .navbar {
   display: flex;
   box-shadow: 0 0 2px 0 grey;
@@ -34,7 +41,7 @@
 }
 
 .group {
-  margin: 0px 7px;
+  margin: 0px 2px;
   display: flex;
   align-items: center;
 }
@@ -99,8 +106,23 @@
   display: inline-block;
 }
 
-.contact {
-  margin-right: 23px;
+.nav-contact {
+  margin-right: 16px;
+}
+
+.cart-box {
+  margin: 24px;
+  padding: 24px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.cart-box .cart-item:nth-child(1) {
+  border-top: thin solid gray;
+}
+
+.cart-box ul {
+  padding-inline-start: 0;
 }
 
 @media (max-width: 700px) {

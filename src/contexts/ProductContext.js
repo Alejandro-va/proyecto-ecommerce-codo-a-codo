@@ -19,7 +19,7 @@ const ProductProvider = (props) => {
       .then((data) => dispatch({ type: TYPES.LOAD_PRODUCTS, payload: data }));
 
     const cartSaved = getCart();
-    console.log("reload product provider cart", cart)
+    
     if (cartSaved != null && cartSaved.length > 0) {
       dispatch({ type: TYPES.LOAD_CART, payload: cartSaved });
     }

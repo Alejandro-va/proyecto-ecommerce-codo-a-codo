@@ -25,15 +25,15 @@ const Navbar = () => {
   const getCartItemCount = () => {
     let count = 0;
     if (cart.length > 0) {
-      cart.forEach(item => count += item.quantity)
+      cart.forEach((item) => (count += item.quantity));
     }
     return count;
-  }
+  };
 
   return (
     <header className="header">
       <nav className="navbar">
-        <Link to='/products'>
+        <Link to="/products">
           <div className="logo">
             <img
               src="https://github.com/subeshb1/GrabCheap/blob/master/img/logo_inverse.jpg?raw=true"
@@ -43,14 +43,15 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <div className="right full-screen">
-          <div className="group darkmode" onClick={() => setModeSite()}>
-            <div className="mode">
-              <i className="material-icons" onClick={() => setModeSite}>
-                {mode}
-              </i>
+        <div className="grupo-icono">
+          <div className="right full-screen">
+            <div className="group darkmode" onClick={() => setModeSite()}>
+              <div className="mode">
+                <i className="material-icons" onClick={() => setModeSite}>
+                  {mode}
+                </i>
+              </div>
             </div>
-          </div>
 
           <div className="group">
             <i className="material-icons">account_circle</i>
@@ -72,11 +73,12 @@ const Navbar = () => {
               <span className="cart-items-count">{getCartItemCount()}</span>
             </Link>
           </div>
-          <div className="group contact">
+          <div className="group nav-contact">
             <i className="material-icons">call</i>
             <Link to="/contact" className="item">
               <span className="detail">Contacto</span>
             </Link>
+          </div>
           </div>
         </div>
         <div className="group menu" onClick={() => setRespMenu(true)}>

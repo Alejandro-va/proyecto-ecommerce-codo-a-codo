@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BtnWhatsapp from "./BtnWhatsapp/BtnWhatsapp";
 import ProductItem from "./ProductItem";
 import "./products.css";
@@ -10,7 +10,7 @@ export const ProductList = ({
   filterProductsByCategory,
 }) => {
   const [filter, setFilter] = useState("");
-  const [categorySelected, setCategorySelected] = useState("");
+  const [categorySelected, setCategorySelected] = useState("all");
 
   const handleFilter = (e) => {
     setFilter(e.target.value);
@@ -41,6 +41,7 @@ export const ProductList = ({
                 <button
                   className="boton-personalizado"
                   onClick={() => handleCategoryFilter(c)}
+                  disabled={c == categorySelected}
                 >
                   {c.toUpperCase()}
                 </button>
@@ -68,7 +69,6 @@ export const ProductList = ({
           />
         </div>
       </div>
-      <h3>Productos</h3>
       <p style={{ marginLeft: "43.5vw", fontSize: "3vh", fontWeight: "bold" }}>
         {categorySelected === "all"
           ? "TODOS LOS PRODUCTOS"
@@ -76,12 +76,15 @@ export const ProductList = ({
       </p>
 
       <section className="box grid-responsive">
-        {products?.length > 0 &&
+        {products?.length > 0 ? (
           products
-            ?.filter((p) => p.title.toLocaleLowerCase().includes(filter))
+            .filter((p) => p.title.toLocaleLowerCase().includes(filter))
             .map((el) => (
               <ProductItem key={el.id} data={el} addToCart={addToCart} />
-            ))}
+            ))
+        ) : (
+          <p className="empty-products">No hay resultados para tu busqueda</p>
+        )}
       </section>
     </>
   );
