@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BtnWhatsapp from "./BtnWhatsapp/BtnWhatsapp";
 import ProductItem from "./ProductItem";
 import "./products.css";
@@ -10,7 +10,7 @@ export const ProductList = ({
   filterProductsByCategory,
 }) => {
   const [filter, setFilter] = useState("");
-  const [categorySelected, setCategorySelected] = useState("");
+  const [categorySelected, setCategorySelected] = useState("all");
 
   const handleFilter = (e) => {
     setFilter(e.target.value);
@@ -41,6 +41,7 @@ export const ProductList = ({
                 <button
                   className="boton-personalizado"
                   onClick={() => handleCategoryFilter(c)}
+                  disabled={c == categorySelected}
                 >
                   {c.toUpperCase()}
                 </button>
@@ -57,8 +58,8 @@ export const ProductList = ({
           </li>
         </ul>
       </div>
-      <div class="wrap">
-        <div class="search">
+      <div className="wrap">
+        <div className="search">
           <input
             type="text"
             className="searchTerm"

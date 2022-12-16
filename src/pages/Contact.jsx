@@ -15,7 +15,6 @@ const Contact = () => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
-  console.log(form);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -85,7 +84,7 @@ const Contact = () => {
               id="textareas"
               cols="30"
               rows="10"
-              maxlength="255"
+              maxLength="255"
               data-pattern="^.{1,255}$"
               value={form.contenido}
               onChange={handleReg}

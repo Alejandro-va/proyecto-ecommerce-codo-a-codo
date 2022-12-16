@@ -17,7 +17,7 @@ export const OrderList = () => {
     <>
       <h3>My Orders</h3>
       {orders.map((order, index) => (
-        <article className="order">
+        <article key={`order-${order.purchased}-${index}`} className="order">
           <h3 className='order-total'>Total: {order.total}</h3>
           <p className="order-date">Purchased: {order.purchased}</p>
           {order.cart.map((item, idx) => (

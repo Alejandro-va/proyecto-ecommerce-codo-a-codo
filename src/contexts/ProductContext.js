@@ -19,7 +19,8 @@ const ProductProvider = (props) => {
       .then((data) => dispatch({ type: TYPES.LOAD_PRODUCTS, payload: data }));
 
     const cartSaved = getCart();
-    if (cartSaved != null) {
+    
+    if (cartSaved != null && cartSaved.length > 0) {
       dispatch({ type: TYPES.LOAD_CART, payload: cartSaved });
     }
   }, [])

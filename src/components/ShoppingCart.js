@@ -23,23 +23,25 @@ const ShoppingCart = () => {
   return (
     <article>
       <h3>Carrito</h3>
-      <section className="box">
+      <section className="cart-box">
         <h4>TOTAL: ${total.toFixed(2)}</h4>
-        <button className="boton-personalizado-borrar" onClick={clearCart}>
+        <button className="boton-personalizado-borrar" onClick={() => clearCart()}>
           Limpiar Carrito
         </button>
 
         {/*************************************************
         RENDERIZAR LOS PRODUCTOS SELECIONADOS
         *************************************************/}
-        {cart?.length > 0 &&
-          cart?.map((item, index) => (
-            <CartItem
-              key={index}
-              prodElegido={item}
-              delFromCart={delFromCart}
-            />
-          ))}
+        <ul>
+          {cart?.length > 0 &&
+            cart?.map((item, index) => (
+              <CartItem
+                key={index}
+                prodElegido={item}
+                delFromCart={delFromCart}
+              />
+            ))}
+        </ul>
       </section>
 
       <button onClick={handleCheckout} disabled={cart.length == 0} className="purchase-button">
