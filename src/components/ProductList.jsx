@@ -76,12 +76,17 @@ export const ProductList = ({
       </p>
 
       <section className="box grid-responsive">
-        {products?.length > 0 &&
-          products
-            ?.filter((p) => p.title.toLocaleLowerCase().includes(filter))
+        {products?.length > 0 ?
+          (products.filter((p) => p.title.toLocaleLowerCase().includes(filter))
             .map((el) => (
               <ProductItem key={el.id} data={el} addToCart={addToCart} />
-            ))}
+            ))
+          ) : (
+            <p className="empty-products">
+              No hay resultados para tu busqueda
+            </p>
+          )
+          }
       </section>
     </>
   );

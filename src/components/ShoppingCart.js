@@ -3,7 +3,6 @@ import CartItem from "./CartItem";
 import { ProductContext } from "../contexts/ProductContext";
 import { addOneOrder } from "../services/localStorageService";
 import { useNavigate } from "react-router-dom";
-import BtnWhatsapp from "./BtnWhatsapp/BtnWhatsapp";
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
@@ -43,7 +42,7 @@ const ShoppingCart = () => {
           ))}
       </section>
 
-      <button onClick={handleCheckout} disabled={cart.length == 0}>
+      <button onClick={handleCheckout} disabled={cart.length == 0} className="purchase-button">
         Purchase
       </button>
     </article>
