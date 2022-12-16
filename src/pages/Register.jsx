@@ -20,7 +20,7 @@ export const Register = () => {
   return (
     <>
       <div className="body-login">
-        <button onClick={() => navigate(-1)}>Back</button>
+        <button onClick={() => navigate(-1)}>Volver Atras</button>
         <h2>Registrarse</h2>
         <form onSubmit={handleNewUser}>
           <div className="inputs">

@@ -20,8 +20,8 @@ export const Login = () => {
 
   return (
     <div className="body-login">
-      <button onClick={() => navigate(-1)}>Back</button>
-      <h2>Sign In</h2>
+      <button onClick={() => navigate(-1)}>Volver Atras</button>
+      <h2>Iniciar Sesion</h2>
       <form onSubmit={handleSignin}>
         <div className="inputs">
           <label>
@@ -33,11 +33,11 @@ export const Login = () => {
             <input type={"password"} name="password" />
           </label>
         </div>
-        <button type="submit">Signin</button>
+        <button type="submit">Iniciar sesion</button>
       </form>
 
       <p>
-        Don't have an account? <Link to="/register">Register</Link>
+        ¿No tenes una cuenta? <Link to="/register">Registrate</Link>
       </p>
     </div>
   );

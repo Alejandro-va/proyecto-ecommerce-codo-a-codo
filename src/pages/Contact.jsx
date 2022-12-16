@@ -37,21 +37,10 @@ const Contact = () => {
       <div className="contact__A ">
         <h2 className="contact__h2" id="contacto">Contacto</h2>
         <p className="contact__P">
-
-        Lamejor tienda en linea con los productos y servicios de calidad. {/* Dirección: 63 Walton Terrace Monroe NY 10950
-        Correo Electrónico: mp.albertorey@gmail.com */}
+        La mejor tienda en linea con los productos y servicios de calidad.
         </p>
       </div>
       <div className="formulario contact__B ">
-        {" "}
-{/*         <hr
-          style={{
-            color: "#fff",
-            height: ".2px",
-            width: "80%",
-            margin: "0 auto 3rem auto",
-          }}
-        /> */}
         <form action="" className="formulario" onSubmit={handleSubmit}>
           <div className="formCaption">
             <h2 className="formh2">ENVÍA TU PREGUNTA{/* {t("contact.message1")} */}</h2>

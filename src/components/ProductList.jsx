@@ -68,7 +68,6 @@ export const ProductList = ({
           />
         </div>
       </div>
-      <h3>Productos</h3>
       <p style={{ marginLeft: "43.5vw", fontSize: "3vh", fontWeight: "bold" }}>
         {categorySelected === "all"
           ? "TODOS LOS PRODUCTOS"
@@ -76,17 +75,15 @@ export const ProductList = ({
       </p>
 
       <section className="box grid-responsive">
-        {products?.length > 0 ?
-          (products.filter((p) => p.title.toLocaleLowerCase().includes(filter))
+        {products?.length > 0 ? (
+          products
+            .filter((p) => p.title.toLocaleLowerCase().includes(filter))
             .map((el) => (
               <ProductItem key={el.id} data={el} addToCart={addToCart} />
             ))
-          ) : (
-            <p className="empty-products">
-              No hay resultados para tu busqueda
-            </p>
-          )
-          }
+        ) : (
+          <p className="empty-products">No hay resultados para tu busqueda</p>
+        )}
       </section>
     </>
   );

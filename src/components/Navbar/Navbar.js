@@ -57,7 +57,7 @@ const Navbar = () => {
               <i className="material-icons">account_circle</i>
               {!loggedUser ? (
                 <a href="/login" className="item">
-                  <span className="detail">Sign In</span>
+                  <span className="detail">Iniciar sesion</span>
                 </a>
               ) : (
                 <a href="/profile" className="item">
@@ -69,7 +69,7 @@ const Navbar = () => {
             <div className="group cart">
               <i className="material-icons">shopping_cart</i>
               <a href="/cart" className="item">
-                <span className="detail">Cart</span>
+                <span className="detail">Carrito</span>
                 <span className="cart-items-count">{getCartItemCount()}</span>
               </a>
             </div>
