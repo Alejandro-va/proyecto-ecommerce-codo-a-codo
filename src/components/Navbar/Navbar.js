@@ -42,6 +42,7 @@ const Navbar = () => {
             <div className="text"> Ecommerce </div>
           </div>
         </Link>
+
         <div class="grupo-icono">
           <div className="right full-screen">
             <div className="group darkmode" onClick={() => setModeSite()}>
@@ -72,7 +73,14 @@ const Navbar = () => {
                 <span className="cart-items-count">{getCartItemCount()}</span>
               </a>
             </div>
-            <div className="group contact">
+            <div
+              className="group "
+              /*               style={{
+                border: "solid blue",
+                width: "4rem",
+                alignSelf: "start",
+              }} */
+            >
               <i className="material-icons">call</i>
               <a href="/contact" className="item">
                 <span className="detail">Contacto</span>

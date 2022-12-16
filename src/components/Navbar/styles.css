@@ -14,6 +14,10 @@
   top: 0;
   width: 100%;
 }
+.grupo-icono {
+  /* border: solid red; */
+  margin-right: 5rem;
+}
 
 .menu {
   display: none !important;
